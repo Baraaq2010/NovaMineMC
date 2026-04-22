@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaMineMC | Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7289da;
+            --accent: #ffaa00;
+            --bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text: #eeeeee;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://i.imgur.com/8QpYQyX.jpg'); /* يمكنك تغيير الخلفية */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        /* IP & Discord Section */
+        .connection-area {
+            margin-top: -40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ip-badge {
+            background: var(--card-bg);
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .ip-badge:hover {
+            transform: translateY(-5px);
+            background: var(--accent);
+            color: #000;
+        }
+
+        .discord-btn {
+            background: #5865F2;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        /* Game Modes Section */
+        .modes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mode-card {
+            background: var(--card-bg);
+            width: 280px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border-bottom: 5px solid transparent;
+            transition: 0.4s;
+        }
+
+        .mode-card:hover {
+            transform: scale(1.05);
+        }
+
+        .mode-card.practice { border-color: #e74c3c; }
+        .mode-card.smp { border-color: #2ecc71; }
+        .mode-card.soon { border-color: #95a5a6; opacity: 0.7; }
+
+        .mode-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .mode-card h2 { margin: 10px 0; }
+        .mode-card p { color: #aaa; font-size: 0.9rem; }
+
+        .status-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        #copy-msg {
+            font-size: 0.8rem;
+            color: var(--accent);
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>NovaMineMC</h1>
+        <p>سيرفير ماين كرافت SMP | Practice</p>
+    </div>
+
+    <div class="connection-area">
+        <div class="ip-badge" onclick="copyToClipboard()">
+            <i class="fas fa-play"></i> Soon
+        </div>
+        <div id="copy-msg"></div>
+        
+        <a href="https://discord.gg/yourlink" class="discord-btn" target="_blank">
+            <i class="fab fa-discord"></i> انضم لمجتمعنا
+        </a>
+    </div>
+
+    <div class="modes-container">
+        <div class="mode-card practice">
+            <i class="fas fa-swords" style="color: #e74c3c;"></i>
+            <h2>Practice</h2>
+            <p><span class="status-dot"></span> جاري انشاء</p>
+            <p>(PvP).</p>
+        </div>
+
+        <div class="mode-card smp">
+            <i class="fas fa-users" style="color: #2ecc71;"></i>
+            <h2>SMP</h2>
+            <p><span class="status-dot"></span> > جاري انشاء</p>
+            <p>(Survival).</p>
+        </div>
+
+        <div class="mode-card soon">
+            <i class="fas fa-clock" style="color: #95a5a6;"></i>
+            <h2>Soon</h2>
+            <p>قريباً..</p>
+            <p>انتظروا !</p>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const ip = "Soon";
+            navigator.clipboard.writeText(ip);
+            const msg = document.getElementById('copy-msg');
+            msg.innerText = "تم نسخ الـ IP بنجاح! ننتظرك في الداخل.";
+            setTimeout(() => { msg.innerText = ""; }, 3000);
+        }
+    </script>
+
+</body>
+</html>
